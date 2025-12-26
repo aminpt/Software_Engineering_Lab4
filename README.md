@@ -43,4 +43,33 @@
 در این الگو، `-?` به این معناست که وجود علامت منفی اختیاری است.
 
 ---
+
+
+## 4. کدهای اصلاح‌شده در فایل MyStepdefs.java
+
+### 4.1 کد قبلی (دارای خطا برای اعداد منفی)
+
+```java
+@Given("^Two input values, (\\d+) and (\\d+)$")
+```
+
+### 4.2 کد اصلاح‌شده برای ورودی‌ها
+
+
+```java
+@Given("^Two input values, (-?\\d+) and (-?\\d+)$")
+public void twoInputValuesAnd(int arg0, int arg1) {
+    // dummy
+}
+```
+
+### 4.3 کد اصلاح‌شده برای بررسی نتیجه
+
+```java
+@Then("^I expect the result (-?\\d+)$")
+public void iExpectTheResult(int arg0) {
+    Assert.assertEquals(arg0, result);
+}
+```
+
 </div>
